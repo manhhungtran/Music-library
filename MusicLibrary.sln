@@ -1,0 +1,83 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{DB2DCF6C-A897-4A2F-A4C1-18112175B747}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{88F641AF-60B5-4EBA-8964-803EE08C666C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Riganti.Utils.Infrastructure.Core", "Riganti.Utils.Infrastructure.Core\Riganti.Utils.Infrastructure.Core.csproj", "{43943D75-B4C8-4152-80CF-E6510BF3DB23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Riganti.Utils.Infrastructure.EntityFramework", "Riganti.Utils.Infrastructure.EntityFramework\Riganti.Utils.Infrastructure.EntityFramework.csproj", "{3C1E4BE0-8351-461D-AF36-746D726CFD48}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E7F0C7BE-943B-4FDE-B3EF-9262C7875C94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication", "ConsoleApplication\ConsoleApplication.csproj", "{6D418ED7-10A9-455E-9C74-93EB389BA641}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{DA738359-7110-4DF6-BD72-7F4B2D13777E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PL", "PL\PL.csproj", "{DA304ACF-7DD1-4765-88C5-25D6F1FB08A2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB2DCF6C-A897-4A2F-A4C1-18112175B747}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB2DCF6C-A897-4A2F-A4C1-18112175B747}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB2DCF6C-A897-4A2F-A4C1-18112175B747}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB2DCF6C-A897-4A2F-A4C1-18112175B747}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88F641AF-60B5-4EBA-8964-803EE08C666C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88F641AF-60B5-4EBA-8964-803EE08C666C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88F641AF-60B5-4EBA-8964-803EE08C666C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88F641AF-60B5-4EBA-8964-803EE08C666C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43943D75-B4C8-4152-80CF-E6510BF3DB23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43943D75-B4C8-4152-80CF-E6510BF3DB23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43943D75-B4C8-4152-80CF-E6510BF3DB23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43943D75-B4C8-4152-80CF-E6510BF3DB23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C1E4BE0-8351-461D-AF36-746D726CFD48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C1E4BE0-8351-461D-AF36-746D726CFD48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C1E4BE0-8351-461D-AF36-746D726CFD48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C1E4BE0-8351-461D-AF36-746D726CFD48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D418ED7-10A9-455E-9C74-93EB389BA641}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D418ED7-10A9-455E-9C74-93EB389BA641}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D418ED7-10A9-455E-9C74-93EB389BA641}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D418ED7-10A9-455E-9C74-93EB389BA641}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA738359-7110-4DF6-BD72-7F4B2D13777E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA738359-7110-4DF6-BD72-7F4B2D13777E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA738359-7110-4DF6-BD72-7F4B2D13777E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA738359-7110-4DF6-BD72-7F4B2D13777E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA304ACF-7DD1-4765-88C5-25D6F1FB08A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA304ACF-7DD1-4765-88C5-25D6F1FB08A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA304ACF-7DD1-4765-88C5-25D6F1FB08A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA304ACF-7DD1-4765-88C5-25D6F1FB08A2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6D418ED7-10A9-455E-9C74-93EB389BA641} = {E7F0C7BE-943B-4FDE-B3EF-9262C7875C94}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://manhhungt.visualstudio.com/
+		SccProjectUniqueName0 = DAL\\DAL.csproj
+		SccProjectName0 = DAL
+		SccAuxPath0 = https://manhhungt.visualstudio.com
+		SccLocalPath0 = DAL
+		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName1 = BL\\BL.csproj
+		SccProjectName1 = BL
+		SccAuxPath1 = https://manhhungt.visualstudio.com
+		SccLocalPath1 = BL
+		SccProvider1 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName2 = Riganti.Utils.Infrastructure.EntityFramework\\Riganti.Utils.Infrastructure.EntityFramework.csproj
+		SccProjectName2 = Riganti.Utils.Infrastructure.EntityFramework
+		SccAuxPath2 = https://manhhungt.visualstudio.com
+		SccLocalPath2 = Riganti.Utils.Infrastructure.EntityFramework
+		SccProvider2 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+	EndGlobalSection
+EndGlobal

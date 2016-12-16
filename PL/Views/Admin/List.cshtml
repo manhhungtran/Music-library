@@ -1,0 +1,61 @@
+﻿@model PL.Models.VipCodeListViewModel
+@using System.Web.Mvc.Html
+@using X.PagedList.Mvc
+@{
+    ViewBag.Title = "Look at these plebs want to have Premium.";
+    bool useCustomBackground = false;
+}
+<div class="filter">
+    @using (Html.BeginForm())
+    {
+        <p>Name: </p>
+        @Html.EditorFor(model => model.Filter.Name)
+        <br />
+        <p>User name: </p>
+        @Html.EditorFor(model => model.Filter.UserName)
+        <br />
+        <br />
+        <a type="button" class="button" href='@Url.Action("ClearFilter")'>Clear</a>
+        <button class="button" type="submit">Filter</button>
+        <hr />
+    }
+    @Html.PagedListPager(Model.Codes, page => Url.Action("Promote", new { page }))
+</div>
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th id="th-main">
+            Code
+        </th>
+    </tr>
+    @foreach (var item in Model.Codes)
+    {
+        {
+            useCustomBackground = !useCustomBackground;
+        }
+        <tr class="@(useCustomBackground ?  "tr_background" : "")">
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Code)
+            </td>
+            <td>
+                <a href="@Url.Action("Delete", new {id = item.ID})">
+                    <div class="button button-table">
+                        <i class="fa fa-trash-o fa-lg"></i>
+                    </div>
+                </a>
+            </td>
+            <td>
+                <a href="@Url.Action("Upgrade", new {id = item.User})">
+                    <div class="button button-table">
+                        <i class="fa fa-arrow-up fa-lg"></i>
+                    </div>
+                </a>
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,25 @@
+﻿@using SelectListItem = System.Web.Mvc.SelectListItem
+@model PL.Models.AddSongToPlaylistModel
+@{
+    IEnumerable<SelectListItem> items = ViewBag.Playlists;
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.DropDownListFor(model => model.Playlist, items)<br />
+    @Html.ValidationMessageFor(model => model.Playlist, "")
+    <br />
+
+    @Html.HiddenFor(model => model.IdSong)
+
+    <input type="submit" value="Add" class="button" />
+
+}
+<br /><br />
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

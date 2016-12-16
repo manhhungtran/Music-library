@@ -1,0 +1,56 @@
+﻿@using BL.Facades
+@model BL.DTO.ArtistDTO
+
+@{
+    ViewBag.Title = "Details";
+
+}
+
+<p>
+    <a href="@Url.Action("Edit", new {id = Model.ID})"><input type="submit" class="button" value="Edit" /></a>
+    <a href="@Url.Action("Index")"><input type="submit" class="button" value="Back to List" /></a>
+</p>
+<div>
+    <hr />
+    <h1>
+        @Html.DisplayFor(model => model.Name)
+    </h1>
+    @if (Model.ProfilePicture != null)
+    {
+        <a href="@Html.DisplayFor(model => model.ProfilePicture)">
+            <img src="@Html.DisplayFor(model => model.ProfilePicture)" class="profilePic" alt="Profile Picture" />
+        </a>
+    }
+    
+    <h2>@Html.DisplayNameFor(model => model.Description)</h2>
+    <p>
+        @Html.DisplayFor(model => model.Description)
+    </p>
+    <h2>
+        @Html.DisplayNameFor(model => model.Images)
+    </h2>
+    <br/>
+    @if (Model.Images != null)
+    {
+        foreach (var pic in Model.Images?.Split(';'))
+        {
+            <a href="@pic">
+                <img class="addPic" src="@pic" />
+            </a>
+        }
+    }
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br/>
+    <hr/>
+    <h2>
+        Upcoming events
+    </h2>
+    <p>
+        
+    </p>
+
+</div>

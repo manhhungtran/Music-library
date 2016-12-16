@@ -1,0 +1,22 @@
+﻿@model BL.DTO.UserAccount.VipCodesDTO
+
+@{
+    ViewBag.Title = "Ha you pleb";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Claim you victory</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.LabelFor(model => model.Code)<br />
+    @Html.EditorFor(model => model.Code)<br />
+    @Html.ValidationMessageFor(model => model.Code)<br/>
+    <br />
+    <input type="submit" value="Claim" class="button" />
+
+}

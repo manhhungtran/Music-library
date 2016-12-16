@@ -1,0 +1,65 @@
+﻿@model PL.Models.PlaylistListViewModel
+@using System.Web.Mvc.Html
+@using X.PagedList.Mvc
+@using SelectListItem = System.Web.Mvc.SelectListItem
+@{
+    bool useCustomBackground = false;
+}
+<p>
+    <a href="@Url.Action("Create")">
+        <input type="submit" class="button" value="Create New" />
+    </a>
+</p>
+<div class="filter">
+    @using (Html.BeginForm())
+    {
+        <p>Name: </p>
+        @Html.EditorFor(model => model.Filter.Name)
+        <br />
+        <br />
+        <a type="button" class="button" href='@Url.Action("ClearFilter")'>Clear</a>
+        <button class="button" type="submit">Filter</button>
+        <hr />
+    }
+    <br/>
+    @Html.PagedListPager(Model.Playlists, page => Url.Action("Index", new { page }))
+</div>
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+    </tr>
+    @foreach (var item in Model.Playlists)
+    {
+        {
+            useCustomBackground = !useCustomBackground;
+        }
+        <tr class="@(useCustomBackground ?  "tr_background" : "")">
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", new {id = item.ID})">
+                    <div class="button button-table">
+                        <i class="fa fa-pencil-square-o fa-lg"></i>
+                    </div>
+                </a>
+            </td>
+            <td>
+                <a href="@Url.Action("Delete", new {id = item.ID})">
+                    <div class="button button-table">
+                        <i class="fa fa-trash-o fa-lg"></i>
+                    </div>
+                </a>
+            </td>
+            <td>
+                <a href="@Url.Action("Details", new {id = item.ID})">
+                    <div class="button button-table">
+                        <i class="fa fa-ellipsis-h fa-lg"></i>
+                    </div>
+                </a>
+            </td>
+        </tr>
+    }
+</table>

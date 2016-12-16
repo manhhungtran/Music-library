@@ -1,0 +1,39 @@
+﻿@using SelectListItem = System.Web.Mvc.SelectListItem
+@model BL.DTO.PlaylistDTO
+
+@{
+    IEnumerable<SelectListItem> songs = ViewBag.Songs;
+    string genres = ViewBag.Genres;
+    ViewBag.Title = "Details";
+}
+
+<p>
+    <a href="@Url.Action("Edit", new {id = Model.ID})"><input type="submit" class="button" value="Edit" /></a>
+    <a href="@Url.Action("Index")"><input type="submit" class="button" value="Back to List"/></a>
+    <a href="@Url.Action("Rec", new {id = Model.ID})"><input type="submit" class="button" value="Get recommended Playlists" /></a>
+</p>
+<div>
+    <hr />
+    <h1>
+        @Html.DisplayFor(model => model.Name)
+    </h1>
+    <h2>Genres</h2>
+    <p>
+        @genres
+    </p>
+    <h2>@Html.DisplayNameFor(model => model.Songs)</h2>
+    <p>
+        @if (Model.Songs != null)
+        {
+            foreach (var song in Model.Songs)
+            {
+                if (String.IsNullOrWhiteSpace(song)) { continue;}
+                <a href="@Url.Action("RemoveSong", new { @song = song,  @playlist = Model.ID})"><i class="fa fa-times"></i></a>
+                <a href="~/Song/Details/@song">
+                    @songs.First(s => s.Value == song).Text 
+                </a>
+                <br /><br />
+            }   
+        }
+    </p>
+</div>

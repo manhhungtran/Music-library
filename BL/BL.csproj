@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{88F641AF-60B5-4EBA-8964-803EE08C666C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BL</RootNamespace>
+    <AssemblyName>BL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppInfrastructure\AppQuery.cs" />
+    <Compile Include="AppInfrastructure\AppUnitOfWork.cs" />
+    <Compile Include="AppInfrastructure\AppUnitOfWorkProvider.cs" />
+    <Compile Include="Base\BusinessLayerInstaller.cs" />
+    <Compile Include="Base\MappingInit.cs" />
+    <Compile Include="Base\UserAccountInit.cs" />
+    <Compile Include="DTO\Album\AlbumDTO.cs" />
+    <Compile Include="DTO\Album\AlbumListQueryResultDTO.cs" />
+    <Compile Include="DTO\Artist\ArtistDTO.cs" />
+    <Compile Include="DTO\Artist\ArtistListQueryResultDTO.cs" />
+    <Compile Include="DTO\Common\PagedListQueryResultDTO.cs" />
+    <Compile Include="DTO\Event\EventDTO.cs" />
+    <Compile Include="DTO\Event\EventListQueryResultDTO.cs" />
+    <Compile Include="DTO\Genre\GenreDTO.cs" />
+    <Compile Include="DTO\Genre\GenreListQueryResultDTO.cs" />
+    <Compile Include="DTO\Playlist\PlaylistDTO.cs" />
+    <Compile Include="DTO\Playlist\PlaylistListQueryResultDTO.cs" />
+    <Compile Include="DTO\Song\SongDTO.cs" />
+    <Compile Include="DTO\Song\SongListQueryResultDTO.cs" />
+    <Compile Include="DTO\UserAccount\UserAccountDTO.cs" />
+    <Compile Include="DTO\UserAccount\UserLoginDTO.cs" />
+    <Compile Include="DTO\UserAccount\UserPasswordDTO.cs" />
+    <Compile Include="DTO\UserAccount\UserRegistrationDTO.cs" />
+    <Compile Include="DTO\UserAccount\VipCodesDTO.cs" />
+    <Compile Include="Facades\LibraryFacade.cs" />
+    <Compile Include="Facades\PremiumFacade.cs" />
+    <Compile Include="Facades\UserFacade.cs" />
+    <Compile Include="Filters\AlbumFilter.cs" />
+    <Compile Include="Filters\ArtistFilter.cs" />
+    <Compile Include="Filters\EventFilter.cs" />
+    <Compile Include="Filters\GenreFilter.cs" />
+    <Compile Include="Filters\PlaylistFilter.cs" />
+    <Compile Include="Filters\SongFilter.cs" />
+    <Compile Include="Filters\VipCodeFilter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\AlbumListQuery.cs" />
+    <Compile Include="Queries\ArtistListQuery.cs" />
+    <Compile Include="Queries\EventListQuery.cs" />
+    <Compile Include="Queries\GenreListQuery.cs" />
+    <Compile Include="Queries\PlaylistListQuery.cs" />
+    <Compile Include="Queries\SongListQuery.cs" />
+    <Compile Include="Queries\VipCodeListQuery.cs" />
+    <Compile Include="Repositories\AlbumRepository.cs" />
+    <Compile Include="Repositories\ArtistRepository.cs" />
+    <Compile Include="Repositories\EventRepository.cs" />
+    <Compile Include="Repositories\GenreRepository.cs" />
+    <Compile Include="Repositories\PlaylistRepository.cs" />
+    <Compile Include="Repositories\SongRepository.cs" />
+    <Compile Include="Repositories\UserAccount\UserAccountManager.cs" />
+    <Compile Include="Repositories\UserAccount\UserAccountRepository.cs" />
+    <Compile Include="Repositories\UserAccount\VipCodeRepository.cs" />
+    <Compile Include="Services\Album\AlbumService.cs" />
+    <Compile Include="Services\Album\IAlbumService.cs" />
+    <Compile Include="Services\Artist\ArtistService.cs" />
+    <Compile Include="Services\Artist\IArtistService.cs" />
+    <Compile Include="Services\Event\EventService.cs" />
+    <Compile Include="Services\Event\IEventService.cs" />
+    <Compile Include="Services\Genre\GenreService.cs" />
+    <Compile Include="Services\Genre\IGenreService.cs" />
+    <Compile Include="Services\MusicLibraryService.cs" />
+    <Compile Include="Services\Playlist\IPlaylistService.cs" />
+    <Compile Include="Services\Playlist\PlaylistService.cs" />
+    <Compile Include="Services\Song\ISongService.cs" />
+    <Compile Include="Services\Song\SongService.cs" />
+    <Compile Include="Services\User\AuthenticationWrapper.cs" />
+    <Compile Include="Services\User\IUserService.cs" />
+    <Compile Include="Services\User\IVipCodeService.cs" />
+    <Compile Include="Services\User\UserService.cs" />
+    <Compile Include="Services\User\VipCodeService.cs" />
+    <Compile Include="DTO\UserAccount\VipCodesListQueryResultsDTO.cs" />
+    <Compile Include="Utilities\AccountPolicy\Claims.cs" />
+    <Compile Include="Utilities\SortEnum\ArtistSortCriteria.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="project.json" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{db2dcf6c-a897-4a2f-a4c1-18112175b747}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Riganti.Utils.Infrastructure.Core\Riganti.Utils.Infrastructure.Core.csproj">
+      <Project>{43943d75-b4c8-4152-80cf-e6510bf3db23}</Project>
+      <Name>Riganti.Utils.Infrastructure.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Riganti.Utils.Infrastructure.EntityFramework\Riganti.Utils.Infrastructure.EntityFramework.csproj">
+      <Project>{3c1e4be0-8351-461d-af36-746d726cfd48}</Project>
+      <Name>Riganti.Utils.Infrastructure.EntityFramework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,53 @@
+﻿@model PL.Models.GenreListViewModel
+@using System.Web.Mvc.Html
+@using X.PagedList.Mvc
+
+<p>
+    <a href="@Url.Action("Create")">
+        <input type="submit" class="button" value="Create New" />
+    </a>
+</p>
+<div class="filter">
+    @using (Html.BeginForm())
+    {
+        <p>Name: </p>
+        @Html.EditorFor(model => model.Filter.Name)
+        <br />
+        <br />
+        <a type="button" class="button" href='@Url.Action("ClearFilter")'>Clear</a>
+        <button class="button" type="submit">Filter</button>
+        <hr />
+    }
+    @Html.PagedListPager(Model.Genres, page => Url.Action("Index", new { page }))
+</div>
+<br/>
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+    </tr>
+
+    @foreach (var item in Model.Genres)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", new {id = item.ID})">
+                    <div class="button button-table">
+                        <i class="fa fa-pencil-square-o fa-lg"></i>
+                    </div>
+                </a>
+            </td>
+            <td>
+                <a href="@Url.Action("Delete", new {id = item.ID})">
+                    <div class="button button-table">
+                        <i class="fa fa-trash-o fa-lg"></i>
+                    </div>
+                </a>
+            </td>
+        </tr>
+    }
+</table>

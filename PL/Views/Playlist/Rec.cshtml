@@ -1,0 +1,34 @@
+﻿@model PL.Models.PlaylistListModel
+@using System.Web.Mvc.Html
+@{
+    bool useCustomBackground = false;
+}
+
+<p>
+    <a href="@Url.Action("Index")"><input type="submit" class="button" value="Back to List" /></a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+    </tr>
+    @foreach (var item in Model.Playlists)
+    {
+        {
+            useCustomBackground = !useCustomBackground;
+        }
+        <tr class="@(useCustomBackground ?  "tr_background" : "")">
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <a href="@Url.Action("Details", new {id = item.ID})">
+                    <div class="button button-table">
+                        <i class="fa fa-ellipsis-h fa-lg"></i>
+                    </div>
+                </a>
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,58 @@
+﻿@model BL.DTO.ArtistDTO
+
+@{
+    ViewBag.Title = "Edit artist";
+}
+
+<h1>Edit</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.ID)
+    <br /><br />
+    @Html.LabelFor(model => model.Name)<br />
+    @Html.EditorFor(model => model.Name)<br />
+    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })<br />
+        
+    @Html.LabelFor(model => model.Description)<br />
+    @Html.EditorFor(model => model.Description)<br />
+    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })<br />
+
+    @Html.LabelFor(model => model.ProfilePicture)<br />
+    @Html.EditorFor(model => model.ProfilePicture)<br />
+    @Html.ValidationMessageFor(model => model.ProfilePicture, "")<br />
+
+    @Html.LabelFor(model => model.Images)<br />
+    
+    <div class="input_fields_wrap">
+        <button class="add_field_button button">Add More Fields</button>
+        @if (@Model.Images != null)
+        {
+            foreach (var pic in Model.Images.Split(';'))
+            {
+                <div>
+                    <input type="text" class="mytext" name="mytext" onkeyup="refreshImageValues()" value="@pic">
+                    <a href="#" class="remove_field">Remove</a>
+                </div>
+            }
+        }
+        <div><input type="text" class="mytext" name="mytext" onkeyup="refreshImageValues()"></div>
+    </div>
+    <input type="hidden" id="Images" name="Images" value="@Model.Images"/>
+    
+    @Html.HiddenFor(model => model.Creator)<br />
+
+    <input type="submit" value="Save" class="button" /><br/>
+    
+}
+<br/><br/>
+
+
+<br/>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

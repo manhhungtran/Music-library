@@ -1,0 +1,37 @@
+﻿@using Castle.Core.Internal
+@using Microsoft.Ajax.Utilities
+@using SelectListItem = System.Web.Mvc.SelectListItem
+@model BL.DTO.PlaylistDTO
+
+@{
+    IEnumerable<SelectListItem> songs = ViewBag.Songs;
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.ID)
+    <br /><br />
+    @Html.LabelFor(model => model.Name)<br />
+    @Html.EditorFor(model => model.Name)<br />
+    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })<br />
+    @Html.HiddenFor(model => model.Songs);
+    @Html.HiddenFor(model => model.Creator)<br />
+
+    <input type="submit" value="Save" class="button" /><br />
+
+}
+<br /><br />
+
+
+<br />
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

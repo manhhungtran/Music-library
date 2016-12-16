@@ -1,0 +1,39 @@
+﻿@using BL.Facades
+@using X.PagedList
+@model BL.DTO.EventDTO
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p>
+    <a href="@Url.Action("Edit", new {id = Model.ID})"><input type="submit" class="button" value="Edit" /></a>
+    <a href="@Url.Action("Index")"><input type="submit" class="button" value="Back to List" /></a>
+</p>
+<div>
+    <hr />
+    <h1>
+        @Html.DisplayFor(model => model.Name)
+    </h1>
+    <h2>@Html.DisplayNameFor(model => model.Artist)</h2>
+    <p>
+        <a href="../Artist/Details/@Html.DisplayFor(model => model.ArtistPId)">@Html.DisplayFor(model => model.Artist.Name)</a>
+    </p>
+    <h2>@Html.DisplayNameFor(model => model.Description)</h2>
+    <p>
+        @Html.DisplayFor(model => model.Description)
+    </p>
+    <h2>@Html.DisplayNameFor(model => model.Start)</h2>
+    <p>
+        @Html.DisplayFor(model => model.Start)
+    </p>
+    <h2>@Html.DisplayNameFor(model => model.End)</h2>
+    <p>
+        @Html.DisplayFor(model => model.End)
+    </p>
+    <h2>@Html.DisplayNameFor(model => model.Place)</h2>
+    <p>
+        @Html.DisplayFor(model => model.Place)
+    </p>
+</div>

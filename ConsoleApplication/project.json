@@ -1,0 +1,11 @@
+﻿{
+  "dependencies": {
+  },
+  "tools": {},
+  "frameworks": {
+    "net452": {}
+  },
+  "runtimes": {
+    "win": {}
+  }
+}

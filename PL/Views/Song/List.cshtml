@@ -1,0 +1,94 @@
+﻿@model PL.Models.SongListViewModel
+@using System.Web.Mvc.Html
+@using X.PagedList.Mvc
+@{
+    bool useCustomBackground = false;
+}
+<p>
+    <a href="@Url.Action("Create")">
+        <input type="submit" class="button" value="Create New" />
+    </a>
+</p>
+<div class="filter">
+    @using (Html.BeginForm())
+    {
+        <p>Name: </p>
+        @Html.EditorFor(model => model.Filter.Name)
+        <br/><br/>
+        <p>Artist name: </p>
+        @Html.EditorFor(model => model.Filter.ArtistName)
+        <p>Album name: </p>
+        @Html.EditorFor(model => model.Filter.AlbumId)
+        <br />
+        <br />
+        <a type="button" class="button" href='@Url.Action("ClearFilter")'>Clear</a>
+        <button class="button" type="submit">Filter</button>
+        <hr />
+    }
+    @Html.PagedListPager(Model.Songs, page => Url.Action("Index", new { page }))
+    <br />
+</div>
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Artist
+        </th>
+        <th>
+            Album
+        </th>
+        <th>
+            Length
+        </th>
+    </tr>
+    @foreach (var item in Model.Songs)
+    {
+        {
+            useCustomBackground = !useCustomBackground;
+        }
+        <tr class="@(useCustomBackground ?  "tr_background" : "")">
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <a href="../Artist/Details/@Html.DisplayFor(modelItem => item.ArtistPId)">@Html.DisplayFor(modelItem => item.Artist.Name)</a>
+            </td>
+            <td>
+                <a href="../Album/Details/@Html.DisplayFor(modelItem => item.AlbumPId)">@Html.DisplayFor(modelItem => item.Album.Name)</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Length)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", new {id = item.ID})">
+                    <div class="button button-table">
+                        <i class="fa fa-pencil-square-o fa-lg"></i>
+                    </div>
+                </a>
+            </td>
+            <td>
+                <a href="@Url.Action("Delete", new {id = item.ID})">
+                    <div class="button button-table">
+                        <i class="fa fa-trash-o fa-lg"></i>
+                    </div>
+                </a>
+            </td>
+            <td>
+                <a href="@Url.Action("Details", new {id = item.ID})">
+                    <div class="button button-table">
+                        <i class="fa fa-ellipsis-h fa-lg"></i>
+                    </div>
+                </a>
+            </td>
+            <td>
+                <a href="@Url.Action("AddSong", "Playlist", new {id = item.ID})">
+                    <div class="button button-table" title="Add song to playlist">
+                        <i class="fa fa-plus fa-lg"></i>
+                    </div>
+                </a>
+            </td>
+        </tr>
+    }
+</table>

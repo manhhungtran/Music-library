@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello:) Music &lt;3</title>
+    <link href="~/Content/style.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto&subset=latin,vietnamese' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/script.js"></script>
+
+</head>
+<body>
+<!--Main menu-->
+    <div class="wrapper">
+        <div id="menu_left">
+            @User.Identity.Name
+            <div class="menu_left_content">
+                <a href="@Url.Action("Index","Home")">
+                    <div class="menu_left_item" title="Home">
+                        <i class="fa fa-home fa-lg"></i>&nbsp;&nbsp; Home
+                    </div>
+                </a>
+
+                <a href="@Url.Action("Index", "Artist")">
+                    <div class="menu_left_item" title="View artits">
+                        <i class="fa fa-users fa-lg"></i>&nbsp;&nbsp; Artists
+                    </div>
+                </a>
+
+                <a href="@Url.Action("Index", "Song")">
+                    <div class="menu_left_item" title="View songs">
+                        <i class="fa fa-play-circle fa-lg"></i>&nbsp;&nbsp; Songs
+                    </div>
+                </a>
+                
+                <a href="@Url.Action("Index", "Album")">
+                    <div class="menu_left_item" title="View albums">
+                        <i class="fa fa-circle fa-lg"></i>&nbsp;&nbsp; Albums
+                    </div>
+                </a>
+                
+                <a href="@Url.Action("Index", "Genre")">
+                    <div class="menu_left_item" title="View genres">
+                        <i class="fa fa-transgender fa-lg"></i>&nbsp;&nbsp; Genres
+                    </div>
+                </a>
+                
+                <a href="@Url.Action("Index", "Playlist")">
+                    <div class="menu_left_item" title="View playlists">
+                        <i class="fa fa-indent fa-lg"></i>&nbsp;&nbsp; Playlists
+                    </div>
+                </a>
+                
+                <a href="@Url.Action("Index", "Event")">
+                    <div class="menu_left_item" title="View events">
+                        <i class="fa fa-calendar fa-lg"></i>&nbsp;&nbsp; Events
+                    </div>
+                </a>
+
+                <a href="@Url.Action("Settings", "Admin")">
+                    <div class="menu_left_item" title="Settings">
+                        <i class="fa fa-cog fa-lg"></i>&nbsp;&nbsp; Settings
+                    </div>
+                </a>
+                
+                <a href="@Url.Action("Propose", "Standart")">
+                    <div class="menu_left_item" title="Settings">
+                        <i class="fa fa-euro fa-lg"></i>&nbsp;&nbsp;&nbsp; Become VIP!
+                    </div>
+                </a>
+                
+                <a href="@Url.Action("Promote", "Admin")">
+                    <div class="menu_left_item" title="Settings">
+                        <i class="fa fa-user fa-lg"></i>&nbsp;&nbsp;&nbsp; Admin menu
+                    </div>
+                </a>
+
+                @using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <a href="javascript:document.getElementById('logoutForm').submit()">
+                        <div class="menu_left_item" title="Log out">
+                            <i class="fa fa-sign-out fa-lg"></i>&nbsp;&nbsp; Log out
+                        </div>
+                    </a>
+                }
+            </div>
+        </div>
+
+        <div id="main_body">
+            @RenderBody()
+        </div>
+    </div>
+
+    <footer>
+        &copy; @DateTime.Now.Year
+    </footer>
+</body>
+</html>

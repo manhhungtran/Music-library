@@ -1,0 +1,47 @@
+﻿@using BL.Facades
+@using X.PagedList
+@model BL.DTO.AlbumDTO
+
+@{
+    string songs = ViewBag.Songs;
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p>
+    <a href="@Url.Action("Edit", new {id = Model.ID})"><input type="submit" class="button" value="Edit" /></a>
+    <a href="@Url.Action("Index")"><input type="submit" class="button" value="Back to List" /></a>
+</p>
+<div>
+    <hr />
+    <h1>
+        @Html.DisplayFor(model => model.Name)
+    </h1>
+    @if (Model.Images != null)
+    {
+        <a href="@Html.DisplayFor(model => model.Images)">
+            <img src="@Html.DisplayFor(model => model.Images)" class="profilePic" alt="Album Cover" />
+        </a>
+    }
+    <h2>@Html.DisplayNameFor(model => model.Artist)</h2>
+    <p>
+        @if (Model.ArtistPId != null)
+        {
+            <a href="../../Artist/Details/@Html.DisplayFor(model => model.ArtistPId)">
+                @Html.DisplayFor(model => model.Artist.Name)
+            </a>
+        }
+    </p>
+    <h2>@Html.DisplayNameFor(model => model.PublishDate)</h2>
+    <p>
+        @Html.DisplayFor(model => model.PublishDate)
+    </p>
+    <h2>@Html.DisplayNameFor(model => model.Description)</h2>
+    <p>
+        @Html.DisplayFor(model => model.Description)
+    </p>
+    <h2>Songs</h2>
+    <p>
+        @songs
+    </p>
+</div>

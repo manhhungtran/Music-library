@@ -1,0 +1,69 @@
+﻿<a href="@Url.Action("Index","Home")">
+    <div class="border_item" title="Home">
+        <i class="fa fa-home fa-5x"></i>Home
+    </div>
+</a>
+
+<a href="@Url.Action("Index", "Artist")">
+    <div class="border_item" title="View artits">
+        <i class="fa fa-users fa-5x"></i>&nbsp;&nbsp; Artists
+    </div>
+</a>
+
+<a href="@Url.Action("Index", "Song")">
+    <div class="border_item" title="View songs">
+        <i class="fa fa-play-circle fa-5x"></i>&nbsp;&nbsp; Songs
+    </div>
+</a>
+
+<a href="@Url.Action("Index", "Album")">
+    <div class="border_item" title="View albums">
+        <i class="fa fa-circle fa-5x"></i>&nbsp;&nbsp; Albums
+    </div>
+</a>
+
+<a href="@Url.Action("Index", "Genre")">
+    <div class="border_item" title="View genres">
+        <i class="fa fa-transgender fa-5x"></i>&nbsp;&nbsp; Genres
+    </div>
+</a>
+
+<a href="@Url.Action("Index", "Playlist")">
+    <div class="border_item" title="View playlists">
+        <i class="fa fa-indent fa-5x"></i>&nbsp;&nbsp; Playlists
+    </div>
+</a>
+
+<a href="@Url.Action("Index", "Event")">
+    <div class="border_item" title="View events">
+        <i class="fa fa-calendar fa-5x"></i>&nbsp;&nbsp; Events
+    </div>
+</a>
+
+<a href="@Url.Action("Settings", "Admin")">
+    <div class="border_item" title="Settings">
+        <i class="fa fa-cog fa-5x"></i>&nbsp;&nbsp; Settings
+    </div>
+</a>
+
+<a href="@Url.Action("Propose", "Standart")">
+    <div class="border_item" title="Settings">
+        <i class="fa fa-euro fa-5x"></i>&nbsp;&nbsp;&nbsp; Become VIP!
+    </div>
+</a>
+
+<a href="@Url.Action("Promote", "Admin")">
+    <div class="border_item" title="Settings">
+        <i class="fa fa-user fa-5x"></i>&nbsp;&nbsp;&nbsp; Admin menu
+    </div>
+</a>
+
+@using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm" }))
+{
+    @Html.AntiForgeryToken()
+    <a href="javascript:document.getElementById('logoutForm').submit()">
+        <div class="border_item" title="Log out">
+            <i class="fa fa-sign-out fa-5x"></i>Logout
+        </div>
+    </a>
+}
